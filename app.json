@@ -1,0 +1,449 @@
+{
+    "designSystem": {
+      "name": "ImageOpt Design System",
+      "version": "1.0.0",
+      "description": "A modern, dark-mode-first design system with clean lines, bold typography, and a focus on professional productivity tools",
+      
+      "colorPalette": {
+        "primary": {
+          "base": "#135bec",
+          "hover": "#1152d4",
+          "light": "rgba(19, 91, 236, 0.1)",
+          "shadow": "rgba(19, 91, 236, 0.2)"
+        },
+        "background": {
+          "light": "#f6f6f8",
+          "dark": "#101622"
+        },
+        "surface": {
+          "light": "#ffffff",
+          "dark": {
+            "primary": "#1a1d23",
+            "secondary": "#15191f",
+            "tertiary": "#111318"
+          }
+        },
+        "border": {
+          "light": "#e2e8f0",
+          "dark": {
+            "primary": "#282e39",
+            "secondary": "#3b4354"
+          }
+        },
+        "text": {
+          "primary": {
+            "light": "#0f172a",
+            "dark": "#ffffff"
+          },
+          "secondary": {
+            "light": "#64748b",
+            "dark": "#94a3b8"
+          },
+          "tertiary": {
+            "light": "#94a3b8",
+            "dark": "#64748b"
+          }
+        },
+        "semantic": {
+          "error": "#f87171",
+          "errorHover": "#ef4444",
+          "success": "#10b981",
+          "warning": "#f59e0b"
+        }
+      },
+  
+      "typography": {
+        "fontFamily": {
+          "display": "'Space Grotesk', sans-serif",
+          "body": "'Space Grotesk', sans-serif",
+          "mono": "ui-monospace, monospace"
+        },
+        "fontWeights": {
+          "light": 300,
+          "normal": 400,
+          "medium": 500,
+          "semibold": 600,
+          "bold": 700
+        },
+        "scale": {
+          "xs": "0.75rem",
+          "sm": "0.875rem",
+          "base": "1rem",
+          "lg": "1.125rem",
+          "xl": "1.25rem",
+          "2xl": "1.5rem",
+          "3xl": "1.875rem",
+          "4xl": "2.25rem"
+        },
+        "lineHeight": {
+          "tight": "1.25",
+          "normal": "1.5",
+          "relaxed": "1.75"
+        },
+        "letterSpacing": {
+          "tight": "-0.015em",
+          "normal": "0",
+          "wide": "0.025em"
+        }
+      },
+  
+      "spacing": {
+        "scale": {
+          "0": "0",
+          "1": "0.25rem",
+          "2": "0.5rem",
+          "3": "0.75rem",
+          "4": "1rem",
+          "5": "1.25rem",
+          "6": "1.5rem",
+          "8": "2rem",
+          "10": "2.5rem",
+          "12": "3rem",
+          "16": "4rem",
+          "20": "5rem"
+        },
+        "layoutPadding": {
+          "mobile": "1rem",
+          "desktop": "2rem"
+        },
+        "sectionGaps": "2rem",
+        "cardPadding": "0.75rem",
+        "cardGaps": "1rem"
+      },
+  
+      "borderRadius": {
+        "sm": "0.25rem",
+        "base": "0.5rem",
+        "lg": "0.75rem",
+        "xl": "1rem",
+        "full": "9999px"
+      },
+  
+      "shadows": {
+        "sm": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+        "base": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+        "md": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+        "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+        "primaryGlow": "0 10px 15px -3px rgba(19, 91, 236, 0.2)",
+        "primaryGlowLg": "0 20px 25px -5px rgba(19, 91, 236, 0.25)"
+      },
+  
+      "components": {
+        "header": {
+          "height": "auto",
+          "padding": "0.75rem 1.5rem",
+          "backgroundColor": "surface-light / surface-dark-tertiary",
+          "borderBottom": "1px solid border-light / border-dark-primary",
+          "zIndex": 20,
+          "logoSize": "2rem",
+          "navGap": "2.25rem",
+          "avatarSize": "2.25rem",
+          "avatarBorder": "2px solid border-light / border-dark-primary"
+        },
+  
+        "button": {
+          "variants": {
+            "primary": {
+              "background": "primary-base",
+              "backgroundHover": "primary-hover",
+              "color": "white",
+              "fontWeight": "bold",
+              "padding": "0.625rem 1.25rem",
+              "borderRadius": "lg",
+              "shadow": "primaryGlow",
+              "transition": "all 200ms"
+            },
+            "secondary": {
+              "background": "transparent",
+              "border": "1px solid border-light / border-dark-primary",
+              "color": "text-secondary",
+              "fontWeight": "medium",
+              "padding": "0.625rem 0.75rem",
+              "borderRadius": "lg",
+              "hover": {
+                "background": "slate-100 / slate-800",
+                "borderColor": "slate-400 / slate-500"
+              }
+            },
+            "ghost": {
+              "background": "transparent",
+              "color": "text-secondary",
+              "padding": "0.5rem",
+              "borderRadius": "base",
+              "hover": {
+                "color": "primary-base"
+              }
+            },
+            "pill": {
+              "borderRadius": "full",
+              "padding": "0.375rem 0.75rem",
+              "fontSize": "xs",
+              "fontWeight": "bold",
+              "border": "1px solid",
+              "variants": {
+                "selected": {
+                  "background": "primary-base",
+                  "borderColor": "primary-base",
+                  "color": "white"
+                },
+                "unselected": {
+                  "background": "transparent",
+                  "borderColor": "border-light / border-dark-primary",
+                  "color": "text-secondary"
+                }
+              }
+            }
+          }
+        },
+  
+        "card": {
+          "background": "surface-light / surface-dark-primary",
+          "border": "1px solid border-light / border-dark-primary",
+          "borderRadius": "xl",
+          "padding": "0.75rem",
+          "shadow": "sm",
+          "hover": {
+            "borderColor": "primary-base with 50% opacity",
+            "transform": "none"
+          },
+          "imageAspectRatio": "4/3",
+          "imageBackground": "slate-100 / surface-dark-tertiary",
+          "imageBorderRadius": "lg"
+        },
+  
+        "dropZone": {
+          "border": "2px dashed border-light / border-dark-secondary",
+          "borderRadius": "xl",
+          "padding": "3rem 1.5rem",
+          "background": "surface-light with 50% opacity / surface-dark-primary with 50% opacity",
+          "hover": {
+            "borderColor": "primary-base with 50% opacity",
+            "background": "primary-light"
+          },
+          "iconSize": "2.25rem",
+          "iconBackground": "slate-100 / border-dark-primary",
+          "iconPadding": "1rem",
+          "iconBorderRadius": "full"
+        },
+  
+        "sidebar": {
+          "width": {
+            "mobile": "100%",
+            "desktop": "360px"
+          },
+          "background": "surface-light / surface-dark-secondary",
+          "border": "1px solid border-light / border-dark-primary",
+          "borderSide": "left on desktop, top on mobile",
+          "sectionPadding": "1.25rem",
+          "sectionGap": "2rem",
+          "headerPadding": "1.25rem",
+          "headerBorderBottom": "1px solid border-light / border-dark-primary"
+        },
+  
+        "badge": {
+          "background": "primary-light",
+          "color": "primary-base",
+          "fontSize": "xs",
+          "padding": "0.125rem 0.5rem",
+          "borderRadius": "full",
+          "fontWeight": "normal"
+        },
+  
+        "progressBar": {
+          "height": "0.375rem",
+          "background": "slate-200 / border-dark-primary",
+          "borderRadius": "full",
+          "fillColor": "primary-base"
+        },
+  
+        "toggle": {
+          "width": "2.75rem",
+          "height": "1.5rem",
+          "borderRadius": "full",
+          "thumbSize": "1rem",
+          "thumbTranslate": {
+            "off": "0.25rem",
+            "on": "1.5rem"
+          },
+          "backgroundColor": {
+            "on": "primary-base",
+            "off": "slate-200 / slate-700"
+          },
+          "focusRing": "2px ring-primary with offset"
+        },
+  
+        "slider": {
+          "trackHeight": "0.5rem",
+          "trackBackground": "slate-200 / slate-800",
+          "trackBorderRadius": "full",
+          "fillColor": "primary-base",
+          "thumbSize": "1rem",
+          "thumbBackground": "white",
+          "thumbBorder": "1px solid border-light",
+          "thumbShadow": "md"
+        },
+  
+        "input": {
+          "background": "surface-light / surface-dark-primary",
+          "border": "1px solid border-light / border-dark-primary",
+          "borderRadius": "lg",
+          "padding": "0.625rem 0.75rem",
+          "fontSize": "sm",
+          "fontWeight": "medium",
+          "focus": {
+            "borderColor": "primary-base",
+            "ring": "2px ring-primary with offset"
+          }
+        },
+  
+        "icon": {
+          "family": "Material Symbols Outlined",
+          "sizes": {
+            "xs": "14px",
+            "sm": "18px",
+            "base": "20px",
+            "lg": "24px",
+            "xl": "32px",
+            "2xl": "40px"
+          },
+          "weights": "100-700",
+          "fill": "0 or 1"
+        }
+      },
+  
+      "layout": {
+        "structure": {
+          "type": "header + main (sidebar layout)",
+          "header": "fixed width, full viewport width",
+          "main": "flex layout with left content area and right sidebar",
+          "contentArea": "flex-1, scrollable, centered max-width container",
+          "sidebar": "fixed width on desktop (360px), full width on mobile"
+        },
+        "maxWidths": {
+          "content": "80rem (1280px)",
+          "contentInner": "60rem (960px)"
+        },
+        "breakpoints": {
+          "sm": "640px",
+          "md": "768px",
+          "lg": "1024px",
+          "xl": "1280px",
+          "2xl": "1536px"
+        },
+        "grid": {
+          "columns": {
+            "mobile": 1,
+            "sm": 2,
+            "lg": 3,
+            "xl": 4
+          },
+          "gap": "1rem"
+        }
+      },
+  
+      "imageUsage": {
+        "patterns": [
+          {
+            "type": "thumbnail",
+            "aspectRatio": "4:3",
+            "containerClass": "bg-cover bg-center",
+            "containerBackground": "slate-100 / surface-dark-tertiary",
+            "borderRadius": "lg",
+            "overlay": "used for processing states with backdrop-blur",
+            "usage": "card thumbnails, queue items"
+          },
+          {
+            "type": "avatar",
+            "shape": "circular",
+            "size": "2.25rem (36px)",
+            "border": "2px solid border color",
+            "containerClass": "bg-cover bg-center aspect-square rounded-full",
+            "usage": "user profile in header"
+          },
+          {
+            "type": "icon-background",
+            "implementation": "Material Symbols Outlined icon font",
+            "usage": "UI icons throughout interface"
+          }
+        ],
+        "overlayStates": {
+          "processing": {
+            "background": "black with 40% opacity",
+            "backdropBlur": "2px",
+            "content": "spinner icon + status text",
+            "textColor": "white",
+            "iconAnimation": "spin"
+          }
+        }
+      },
+  
+      "animations": {
+        "transitions": {
+          "default": "all 200ms ease",
+          "colors": "colors 200ms ease",
+          "transform": "transform 200ms ease"
+        },
+        "hover": {
+          "scale": "none (avoid transform)",
+          "colorShift": "slight color change",
+          "borderHighlight": "border color to primary with opacity"
+        },
+        "loading": {
+          "spinner": "animate-spin on Material Icons"
+        }
+      },
+  
+      "accessibility": {
+        "focusRing": "2px ring-primary with offset",
+        "colorContrast": "WCAG AA compliant",
+        "semanticHTML": "use appropriate HTML5 elements",
+        "altText": "all images require data-alt attributes"
+      },
+  
+      "namingConventions": {
+        "components": "PascalCase (e.g., ImageCard, DropZone, ConfigSidebar)",
+        "utilities": "camelCase (e.g., formatFileSize, calculateProgress)",
+        "cssClasses": "Tailwind utility classes",
+        "colors": "semantic names (primary, surface, border) over hex values",
+        "spacing": "t-shirt sizing (xs, sm, base, lg, xl) or numeric scale"
+      },
+  
+      "componentArchitecture": {
+        "Header": {
+          "slots": ["logo", "navigation", "actions", "avatar"],
+          "responsive": "hide nav on mobile, show hamburger"
+        },
+        "Card": {
+          "slots": ["image", "title", "metadata", "actions", "progressBar"],
+          "states": ["idle", "processing", "complete", "error"],
+          "variants": ["default", "processing", "add-more"]
+        },
+        "Sidebar": {
+          "sections": ["header", "scrollable-content", "fixed-footer"],
+          "controls": ["format-selector", "size-selector", "quality-slider", "toggles", "action-buttons"]
+        },
+        "DropZone": {
+          "states": ["idle", "dragover", "uploading"],
+          "slots": ["icon", "title", "description", "action-button"]
+        },
+        "Grid": {
+          "responsive": "1 col mobile → 2 col sm → 3 col lg → 4 col xl",
+          "gap": "1rem consistent",
+          "lastItem": "add-more button placeholder"
+        }
+      },
+  
+      "stateManagement": {
+        "fileQueue": ["ready", "processing", "complete", "error"],
+        "configuration": ["format", "widths", "quality", "toggles"],
+        "ui": ["sidebarOpen", "modalOpen", "uploadProgress"]
+      },
+  
+      "darkMode": {
+        "strategy": "class-based (Tailwind dark: prefix)",
+        "default": "dark mode",
+        "toggle": "not shown but supported",
+        "colorScheme": "complete dark palette defined"
+      }
+    }
+  }
