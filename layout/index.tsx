@@ -4,7 +4,6 @@ import { Header } from "@/components/Header";
 import { Sidebar } from "@/components/Sidebar";
 import { useSidebarStore } from "@/lib/stores/sidebar-store";
 import { useImageStore } from "@/lib/stores/image-store";
-import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -23,8 +22,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     setPreserveAspectRatio,
     preserveMetadata,
     setPreserveMetadata,
-    isMobileOpen,
-    setMobileOpen,
     reset,
   } = useSidebarStore();
 
@@ -49,7 +46,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       onPreserveMetadataChange={setPreserveMetadata}
       onOptimize={() => {
         optimize();
-        setMobileOpen(false);
       }}
       onReset={reset}
       hasImages={images.length > 0}
@@ -74,14 +70,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <aside className="hidden lg:block fixed right-0 top-0 h-screen w-[360px] z-10">
         {sidebarContent}
       </aside>
-
-      {/* Mobile Sidebar Drawer */}
-      <Sheet open={isMobileOpen} onOpenChange={setMobileOpen}>
-        <SheetContent side="right" className="w-full sm:w-[360px] p-0">
-          <SheetTitle className="sr-only">Optimization Settings</SheetTitle>
-          <div className="h-full">{sidebarContent}</div>
-        </SheetContent>
-      </Sheet>
     </div>
   );
 };

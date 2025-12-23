@@ -1,7 +1,13 @@
 "use client";
 
 import * as React from "react";
-import { MdDownload, MdClose, MdImage, MdDelete } from "react-icons/md";
+import {
+  MdDownload,
+  MdClose,
+  MdImage,
+  MdDelete,
+  MdSettings,
+} from "react-icons/md";
 import { DropZone } from "@/components/DropZone";
 import { ImageCard } from "@/components/ImageCard";
 import {
@@ -14,6 +20,8 @@ import { useImageStore, type ImageFile } from "@/lib/stores/image-store";
 import { useSidebarStore } from "@/lib/stores/sidebar-store";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { Sidebar } from "@/components/Sidebar";
 import { cn } from "@/lib/utils";
 
 export default function Home() {
@@ -27,14 +35,24 @@ export default function Home() {
   const setOptimizeCallback = useImageStore(
     (state) => state.setOptimizeCallback
   );
+  const optimize = useImageStore((state) => state.optimize);
+  const [isMobileDialogOpen, setIsMobileDialogOpen] = React.useState(false);
   const {
     format,
+    setFormat,
     widths,
+    toggleWidth,
     customWidth,
+    setCustomWidth,
     quality,
+    setQuality,
     preventUpscaling,
+    setPreventUpscaling,
     preserveAspectRatio,
+    setPreserveAspectRatio,
     preserveMetadata,
+    setPreserveMetadata,
+    reset,
   } = useSidebarStore();
 
   const handleDrop = React.useCallback(
@@ -329,10 +347,22 @@ export default function Home() {
 
                       {image.state === "idle" && (
                         <div className="pt-4 border-t border-border">
-                          <p className="text-sm text-muted-foreground text-center">
-                            Click "Optimize Images" in the sidebar to generate
-                            optimized versions
-                          </p>
+                          <div className="flex flex-col sm:flex-row gap-2 sm:justify-center">
+                            <p className="text-sm text-muted-foreground text-center sm:hidden">
+                              Tap "Optimize" to generate optimized versions
+                            </p>
+                            <p className="text-sm text-muted-foreground text-center hidden lg:block">
+                              Click "Optimize Images" in the sidebar to generate
+                              optimized versions
+                            </p>
+                            <Button
+                              onClick={() => setIsMobileDialogOpen(true)}
+                              className="lg:hidden w-full font-bold"
+                            >
+                              <MdSettings className="h-4 w-4 mr-2" />
+                              Optimize
+                            </Button>
+                          </div>
                         </div>
                       )}
                     </CardContent>
@@ -372,6 +402,37 @@ export default function Home() {
           )}
         </div>
       </div>
+
+      {/* Mobile Settings Dialog */}
+      <Dialog open={isMobileDialogOpen} onOpenChange={setIsMobileDialogOpen}>
+        <DialogContent className="max-w-[95vw] sm:max-w-lg max-h-[90vh] overflow-hidden p-0 flex flex-col">
+          <DialogTitle className="sr-only">Optimization Settings</DialogTitle>
+          <div className="overflow-y-auto flex-1">
+            <Sidebar
+              format={format}
+              onFormatChange={setFormat}
+              widths={widths}
+              onWidthToggle={toggleWidth}
+              customWidth={customWidth}
+              onCustomWidthChange={setCustomWidth}
+              quality={quality}
+              onQualityChange={setQuality}
+              preventUpscaling={preventUpscaling}
+              onPreventUpscalingChange={setPreventUpscaling}
+              preserveAspectRatio={preserveAspectRatio}
+              onPreserveAspectRatioChange={setPreserveAspectRatio}
+              preserveMetadata={preserveMetadata}
+              onPreserveMetadataChange={setPreserveMetadata}
+              onOptimize={() => {
+                optimize();
+                setIsMobileDialogOpen(false);
+              }}
+              onReset={reset}
+              hasImages={images.length > 0}
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

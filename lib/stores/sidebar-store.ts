@@ -9,7 +9,6 @@ interface SidebarState {
   preventUpscaling: boolean;
   preserveAspectRatio: boolean;
   preserveMetadata: boolean;
-  isMobileOpen: boolean;
   setFormat: (format: ImageFormat) => void;
   toggleWidth: (width: number) => void;
   setCustomWidth: (width: number | null) => void;
@@ -17,7 +16,6 @@ interface SidebarState {
   setPreventUpscaling: (prevent: boolean) => void;
   setPreserveAspectRatio: (preserve: boolean) => void;
   setPreserveMetadata: (preserve: boolean) => void;
-  setMobileOpen: (open: boolean) => void;
   reset: () => void;
 }
 
@@ -29,7 +27,6 @@ export const useSidebarStore = create<SidebarState>((set) => ({
   preventUpscaling: true,
   preserveAspectRatio: true,
   preserveMetadata: false,
-  isMobileOpen: false,
   setFormat: (format) => set({ format }),
   toggleWidth: (width) =>
     set((state) => ({
@@ -42,7 +39,6 @@ export const useSidebarStore = create<SidebarState>((set) => ({
   setPreventUpscaling: (prevent) => set({ preventUpscaling: prevent }),
   setPreserveAspectRatio: (preserve) => set({ preserveAspectRatio: preserve }),
   setPreserveMetadata: (preserve) => set({ preserveMetadata: preserve }),
-  setMobileOpen: (open) => set({ isMobileOpen: open }),
   reset: () =>
     set({
       format: "jpeg",

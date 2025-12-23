@@ -1,9 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { MdImage, MdMenu, MdLightMode, MdDarkMode } from "react-icons/md";
+import { MdImage, MdLightMode, MdDarkMode } from "react-icons/md";
 import { cn } from "@/lib/utils";
-import { useSidebarStore } from "@/lib/stores/sidebar-store";
 import { useThemeStore } from "@/lib/stores/theme-store";
 import { Button } from "@/components/ui/button";
 
@@ -15,7 +14,6 @@ interface HeaderProps {
 }
 
 export function Header({ className, logo, navigation, actions }: HeaderProps) {
-  const setMobileOpen = useSidebarStore((state) => state.setMobileOpen);
   const { theme, toggleTheme } = useThemeStore();
 
   return (
@@ -30,15 +28,6 @@ export function Header({ className, logo, navigation, actions }: HeaderProps) {
       )}
     >
       <div className="flex items-center gap-3">
-        <Button
-          variant="ghost"
-          size="icon"
-          className="lg:hidden"
-          onClick={() => setMobileOpen(true)}
-          aria-label="Open menu"
-        >
-          <MdMenu className="h-5 w-5" />
-        </Button>
         {logo || (
           <div className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
