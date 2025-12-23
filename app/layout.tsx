@@ -27,7 +27,7 @@ export default function RootLayout({
         className={`${spaceGrotesk.variable} antialiased`}
         style={{ fontFamily: "var(--font-body)" }}
       >
-        <ThemeProvider>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Layout>{children}</Layout>
         </ThemeProvider>
       </body>

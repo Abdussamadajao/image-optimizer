@@ -2,8 +2,8 @@
 
 import * as React from "react";
 import { MdImage, MdLightMode, MdDarkMode } from "react-icons/md";
+import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
-import { useThemeStore } from "@/lib/stores/theme-store";
 import { Button } from "@/components/ui/button";
 
 interface HeaderProps {
@@ -14,7 +14,62 @@ interface HeaderProps {
 }
 
 export function Header({ className, logo, navigation, actions }: HeaderProps) {
-  const { theme, toggleTheme } = useThemeStore();
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
+  if (!mounted) {
+    return (
+      <header
+        className={cn(
+          "fixed top-0 left-0 right-0 z-20 h-auto",
+          "bg-card",
+          "border-b border-border",
+          "px-4 sm:px-6 py-3",
+          "flex items-center justify-between gap-4",
+          className
+        )}
+      >
+        <div className="flex items-center gap-3">
+          {logo || (
+            <div className="flex items-center gap-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
+                <MdImage className="h-5 w-5 text-primary-foreground" />
+              </div>
+              <span className="text-lg sm:text-xl font-bold text-foreground">
+                Isolay
+              </span>
+            </div>
+          )}
+        </div>
+
+        {navigation && (
+          <nav className="hidden md:flex items-center gap-9">{navigation}</nav>
+        )}
+
+        <div className="flex items-center gap-2 sm:gap-4">
+          {actions && (
+            <div className="hidden sm:flex items-center gap-2">{actions}</div>
+          )}
+          <Button
+            variant="ghost"
+            size="icon"
+            aria-label="Toggle theme"
+            disabled
+          >
+            <MdLightMode className="h-5 w-5" />
+          </Button>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header
