@@ -172,7 +172,7 @@ export default function Home() {
           const url = window.URL.createObjectURL(blob);
           const link = document.createElement("a");
           link.href = url;
-          link.download = `${nameWithoutExt}${widthSuffix}-optimized.${extension}`;
+          link.download = `${nameWithoutExt}${widthSuffix}-isolay.${extension}`;
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
@@ -180,7 +180,7 @@ export default function Home() {
         } else {
           const link = document.createElement("a");
           link.href = dataUrl;
-          link.download = `${nameWithoutExt}${widthSuffix}-optimized.${extension}`;
+          link.download = `${nameWithoutExt}${widthSuffix}-isolay.${extension}`;
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);

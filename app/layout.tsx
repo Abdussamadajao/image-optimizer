@@ -11,7 +11,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "ImageOpt - Image Optimizer",
+  title: "Isolay - Image Optimizer",
   description:
     "A modern image optimization tool with professional productivity features",
 };

@@ -45,7 +45,7 @@ export function Header({ className, logo, navigation, actions }: HeaderProps) {
               <MdImage className="h-5 w-5 text-primary-foreground" />
             </div>
             <span className="text-lg sm:text-xl font-bold text-foreground">
-              ImageOpt
+              Isolay
             </span>
           </div>
         )}
